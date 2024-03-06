@@ -1,8 +1,8 @@
 <?php
 
 require "functions.php";
-require "router.php";
 require "Database.php";
+require "router.php";
 
 $config = require('config.php');
 
@@ -16,6 +16,6 @@ $query = "select * from posts where id = ?";
 
 // dd($query);
 
-$posts = $db->query($query, [$id])->fetchAll();
+// $posts = $db->query($query, [$id])->fetchAll();
 
 // dd($posts);
