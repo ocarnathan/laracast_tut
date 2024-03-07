@@ -6,7 +6,7 @@
         <p class="mb-6">
             <a href="/notes" class="text-blue-500 underline"> go back...</a>
         </p>
-        <p><?= $note['body'] ?></p>
+        <p><?= htmlSpecialChars($note['body']) ?></p>
     </div>
 </main>
 <?php require "partials/footer.php"; ?>

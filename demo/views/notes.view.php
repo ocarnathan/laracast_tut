@@ -8,7 +8,9 @@
             <ul>
                 <li>
                     <a href="/note?id=<?= $note['id'] ?>" class="text-blue-500 hover:underline">
-                        <?= substr($note['body'], 0, 8) . "..." ?>
+                        <!-- <?= substr($note['body'], 0, 8) . "..." ?> -->
+                        <?= substr(htmlSpecialChars($note['body']), 0, 8) . "..." ?>
+                        <!-- htmlSpecialChars is a built in function -->
                     </a>
                 </li>
             </ul>
