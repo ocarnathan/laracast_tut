@@ -4,6 +4,7 @@
 class Database
 {
     public $connection;
+    public $statement;
     //a construct method will auto trigger/execute when an instance is created.
     public function __construct($config, $username = 'root', $password = '')
     {
@@ -20,13 +21,35 @@ class Database
     public function query($query, $params = [])
     {
         // Prepare a SQL query to select all columns from the 'posts' table.
-        $statement = $this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
 
         // Execute the prepared statement, fetching all results.
-        $statement->execute($params);
+        $this->statement->execute($params);
 
         // Fetch all posts as an associative array using PDO::FETCH_ASSOC.
-        return $statement;
+        // return $statement;
+        return $this;
+    }
+
+    public function get()
+    {
+        return $this->statement->fetchAll();
+    }
+
+    public function find()
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->find();
+
+        if (!$result) {
+            abort();
+        }
+
+        return $result;
     }
 }
 

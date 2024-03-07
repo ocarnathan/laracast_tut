@@ -1,13 +1,6 @@
 <?php
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/notes' => 'controllers/notes.php',
-    '/note' => 'controllers/note.php',
-    '/contact' => 'controllers/contact.php',
-];
+$routes = require "routes.php"; //the file 'routes.php simply returns an array(list) of routes.
 
 function abort($statusCode = 404) //Here 404 is the default parameter. That way the function works without being given a parameter.
 {
@@ -24,5 +17,5 @@ function routeToController($uri, $routes)
         abort();
     }
 }
-
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 routeToController($uri, $routes);
