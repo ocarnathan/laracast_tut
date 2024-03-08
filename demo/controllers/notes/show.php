@@ -1,10 +1,9 @@
 <?php
 
-$config = require('config.php');
+$config = require base_path('config.php');
 
 $db = new Database($config['database']);
 
-$heading = 'Note';
 $currentUserId = 1;
 
 $note = $db->query('select * from notes where id = :id', [
@@ -17,5 +16,7 @@ $note = $db->query('select * from notes where id = :id', [
 
 authorize($note['user_id'] === $currentUserId);
 
-// dd($notes);
-require "views/notes/show.view.php"; //gives the file in qoutes access to the contents of this current file
+view("notes/show.view.php", [
+    'heading' => 'Note',
+    'note' => $note
+]);

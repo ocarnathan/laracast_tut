@@ -24,3 +24,17 @@ function authorize($condition)
         // creating an instance of the class.
     }
 }
+
+function base_path($path)
+{
+    return BASE_PATH . $path;
+}
+
+function view($path, $attributes = [])
+{
+    // Extracts variables from the associative array $attributes, making them available in the current symbol table.
+    extract($attributes);
+
+    // Requires and includes the specified view file located in the 'views/' directory.
+    require base_path('views/' . $path);
+}
