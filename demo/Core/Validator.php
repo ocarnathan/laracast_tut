@@ -1,5 +1,6 @@
 <?php
 
+namespace Core;
 //This method is an example of a pure function., A pure function is a function 
 // that is not contingent or dependant upon state or values from the outside world. 
 // When a class only contains pure functions it it ideal to use the static keyword. 

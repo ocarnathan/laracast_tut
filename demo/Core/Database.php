@@ -1,6 +1,14 @@
 <?php
 //Whenever you have a php file that only contains a class. General convention is that the file name be capitalized.
 // Connect to MySQL database and execute a query.
+
+namespace Core;
+// In PHP, a namespace is a way to encapsulate items like classes, 
+// functions, and variables, preventing naming conflicts between different 
+// parts of a program. Namespaces provide a mechanism to organize and group 
+// related code elements, making it easier to manage and maintain large codebases.
+use PDO;
+
 class Database
 {
     public $connection;
