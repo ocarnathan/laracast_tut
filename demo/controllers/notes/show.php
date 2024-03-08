@@ -18,4 +18,4 @@ $note = $db->query('select * from notes where id = :id', [
 authorize($note['user_id'] === $currentUserId);
 
 // dd($notes);
-require "views/note.view.php"; //gives the file in qoutes access to the contents of this current file
+require "views/notes/show.view.php"; //gives the file in qoutes access to the contents of this current file

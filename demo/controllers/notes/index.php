@@ -9,4 +9,4 @@ $heading = 'My Notes';
 $notes = $db->query('select * from notes')->get();
 
 // dd($notes);
-require "views/notes.view.php"; //gives the file in qoutes access to the contents of this current file
+require "views/notes/index.view.php"; //gives the file in qoutes access to the contents of this current file
