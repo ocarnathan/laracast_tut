@@ -18,3 +18,6 @@ $router->post('/notes', 'controllers/notes/store.php');
 // dd($router->routes);
 $router->get('/register', 'controllers/registration/create.php')->only('guest');
 $router->post('/register', 'controllers/registration/store.php');
+
+$router->get('/login', 'controllers/sessions/create.php')->only('guest');
+$router->post('/sessions', 'controllers/sessions/store.php')->only('guest');

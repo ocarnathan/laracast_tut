@@ -43,10 +43,12 @@ if ($user) {
         'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
+
+    login($user);
     // add the user to the session.
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
+    // $_SESSION['user'] = [
+    //     'email' => $email
+    // ];
 
     header('location: /');
     exit();

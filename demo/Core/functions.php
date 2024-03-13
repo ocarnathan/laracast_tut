@@ -50,3 +50,10 @@ function view($path, $attributes = [])
     // Requires and includes the specified view file located in the 'views/' directory.
     require base_path('views/' . $path);
 }
+
+function login($user)
+{
+    $_SESSION['user'] = [
+        'email' => $user['email']
+    ];
+}
