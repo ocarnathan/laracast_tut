@@ -39,8 +39,8 @@ if ($user) {
 } else { // If no, create new account, login, redirect.
 
     $db->query('INSERT into users(email, password) VALUES(:email, :password)', [
-        'email' => $email,
-        'password' => $password
+        'email' => strtolower($email),
+        'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
     // add the user to the session.

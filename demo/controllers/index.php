@@ -1,7 +1,7 @@
 <?php
 // $heading = 'Home';
 
-$_SESSION['name'] = 'Obie';
+// $_SESSION['name'] = 'Obie';
 
 
 
