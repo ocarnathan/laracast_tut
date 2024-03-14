@@ -10,7 +10,9 @@
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="/" class="<?= urlCheck('/') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Home</a>
                         <a href="/about" class="<?= urlCheck('/about') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
-                        <a href="/notes" class="<?= urlCheck('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Notes</a>
+                        <?php if ($_SESSION['user'] ?? false) : ?>
+                            <a href="/notes" class="<?= urlCheck('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Notes</a>
+                        <?php endif; ?>
                         <a href="/contact" class="<?= urlCheck('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
                     </div>
                 </div>
@@ -54,8 +56,10 @@
                     </div>
                     <?php if ($_SESSION['user'] ?? false) : ?>
                         <div class="relative ml-3">
-                            <a href="/logout" class="<?= urlCheck('/logout') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Log Out</a>
-
+                            <form method="POST" action="/session">
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <button class="bg-gray-900 text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Log Out</button>
+                            </form>
                         </div>
                     <?php endif; ?>
                 </div>

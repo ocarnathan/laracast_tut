@@ -18,7 +18,7 @@ require base_path("bootstrap.php");
 
 $router = new \Core\Router();
 
-$routes = require base_path("routes.php"); //the file 'routes.php simply returns an array(list) of routes.
+$routes = require base_path("routes.php");
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
