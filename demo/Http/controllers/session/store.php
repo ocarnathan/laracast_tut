@@ -28,6 +28,9 @@ NOTE: You do not need to create an instance of a class to call static methods.
  of the class.
 */
 Session::flash('errors', $form->errors());
+Session::flash('old', [
+    'email' => $_POST['email']
+]);
 
 
 return redirect('/login');
