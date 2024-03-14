@@ -68,3 +68,9 @@ function logout()
 
     setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
 }
+
+function redirect($path)
+{
+    header("location: {$path}");
+    exit();
+}
