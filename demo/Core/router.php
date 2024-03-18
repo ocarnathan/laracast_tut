@@ -71,6 +71,11 @@ class Router
         $this->abort();
     }
 
+    public function previousUrl()
+    {
+        return redirect($_SERVER['HTTP_REFERER']);
+    }
+
     public function abort($statusCode = 404) //Here 404 is the default parameter. That way the function works without being given a parameter.
     {
         http_response_code($statusCode);
