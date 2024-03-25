@@ -1,0 +1,16 @@
+{
+    "name": "obie/demo",
+    "authors": [
+        {
+            "name": "Obie C",
+            "email": "aikia16@uab.edu"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
